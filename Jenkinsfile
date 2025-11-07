@@ -34,21 +34,19 @@ pipeline {
             }
         }
 
-
-/*
-
-        // ✅ APPLY STAGE (ACTIVE)
+        // ✅ APPLY STAGE IS DISABLED
+        /*
         stage('Terraform Apply') {
             steps {
-                input message: '✅ Do you want to APPLY the Terraform plan?'
+                input message: 'Do you want to APPLY the Terraform plan?'
                 dir("${TF_WORKDIR}") {
                     sh 'terraform apply -auto-approve tfplan'
                 }
             }
         }
-*/
-         ✅ DESTROY STAGE (COMMENTED OUT)
-        
+        */
+
+        // ✅ DESTROY STAGE IS ENABLED
         stage('Terraform Destroy') {
             steps {
                 input message: '⚠️ Do you want to DESTROY all infrastructure?'
@@ -57,12 +55,11 @@ pipeline {
                 }
             }
         }
-        
     }
 
     post {
         success {
-            echo "✅ Terraform apply completed successfully!"
+            echo "✅ Destroy completed successfully!"
         }
         failure {
             echo "❌ Pipeline failed. Check logs."
