@@ -34,6 +34,9 @@ pipeline {
             }
         }
 
+
+/*
+
         // ✅ APPLY STAGE (ACTIVE)
         stage('Terraform Apply') {
             steps {
@@ -43,9 +46,9 @@ pipeline {
                 }
             }
         }
-
-        // ✅ DESTROY STAGE (COMMENTED OUT)
-        /*
+*/
+         ✅ DESTROY STAGE (COMMENTED OUT)
+        
         stage('Terraform Destroy') {
             steps {
                 input message: '⚠️ Do you want to DESTROY all infrastructure?'
@@ -54,7 +57,7 @@ pipeline {
                 }
             }
         }
-        */
+        
     }
 
     post {
