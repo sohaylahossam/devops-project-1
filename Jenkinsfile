@@ -34,20 +34,17 @@ pipeline {
             }
         }
 
-        // ✅ APPLY STAGE (COMMENTED OUT)
-        
+        // ✅ APPLY STAGE (ACTIVE)
         stage('Terraform Apply') {
             steps {
-                input message: 'Do you want to APPLY the Terraform plan?'
+                input message: '✅ Do you want to APPLY the Terraform plan?'
                 dir("${TF_WORKDIR}") {
                     sh 'terraform apply -auto-approve tfplan'
                 }
             }
         }
-        
 
-        // ✅ DESTROY STAGE (ACTIVE)
-
+        // ✅ DESTROY STAGE (COMMENTED OUT)
         /*
         stage('Terraform Destroy') {
             steps {
@@ -57,11 +54,12 @@ pipeline {
                 }
             }
         }
+        */
     }
-*/
+
     post {
         success {
-            echo "✅ Pipeline completed (apply skipped, destroy executed)."
+            echo "✅ Terraform apply completed successfully!"
         }
         failure {
             echo "❌ Pipeline failed. Check logs."
