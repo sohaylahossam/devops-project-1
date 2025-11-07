@@ -45,7 +45,9 @@ pipeline {
             steps {
                 input message: 'Do you want to apply the Terraform plan?'
                 dir("${TF_WORKDIR}") {
-                    sh 'terraform apply -auto-approve tfplan'
+                    // sh 'terraform apply -auto-approve tfplan'
+                    sh 'terraform destroy -auto-approve tfplan'
+                    
                 }
             }
         }
