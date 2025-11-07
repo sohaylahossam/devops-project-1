@@ -35,7 +35,7 @@ pipeline {
         }
 
         // ✅ APPLY STAGE (COMMENTED OUT)
-        /*
+        
         stage('Terraform Apply') {
             steps {
                 input message: 'Do you want to APPLY the Terraform plan?'
@@ -44,9 +44,11 @@ pipeline {
                 }
             }
         }
-        */
+        
 
         // ✅ DESTROY STAGE (ACTIVE)
+
+        /*
         stage('Terraform Destroy') {
             steps {
                 input message: '⚠️ Do you want to DESTROY all infrastructure?'
@@ -56,7 +58,7 @@ pipeline {
             }
         }
     }
-
+*/
     post {
         success {
             echo "✅ Pipeline completed (apply skipped, destroy executed)."
